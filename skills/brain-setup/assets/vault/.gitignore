@@ -1,0 +1,5 @@
+.DS_Store
+.trash/
+.obsidian/workspace*.json
+.obsidian/plugins/*/data.json
+.smart-env/
