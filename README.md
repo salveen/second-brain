@@ -1,13 +1,14 @@
 # second-brain
 
-A second brain made of seven small skills and a folder of plain Markdown files: tasks, memory, notes, a daily file and a log, all on your own machine. It works in Claude Code and GitHub Copilot.
+A second brain made of small skills and a folder of plain Markdown files: tasks, memory, notes, a daily file and a log, all on your own machine. It works in Claude Code and GitHub Copilot.
 
 ## Setup (macOS)
 
 1. Open the Terminal app, paste this and press Enter:
    ```bash
-   git clone https://github.com/salveen/second-brain.git && cd second-brain && ./install.sh
+   git clone https://github.com/salveen/second-brain.git ~/.second-brain && ~/.second-brain/install.sh
    ```
+   This puts the skills in a hidden folder, `~/.second-brain`. Keep it: deleting it turns the skills off. Your notes live in a separate folder (`~/Brain` by default). To update later, run `cd ~/.second-brain && git pull && ./install.sh`.
 2. Open Claude Code, or Copilot in agent mode, and say **"set up my brain"**. It asks a few questions and does the rest.
 
 ## What you can say

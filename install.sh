@@ -1,42 +1,35 @@
 #!/usr/bin/env bash
-# Link the second-brain skills into each AI tool's personal skills folder.
-#   ./install.sh              link them
-#   ./install.sh --uninstall  remove only the links that point into this kit
-# Then open any AI tool and say: "set up my brain".
+# Link the second-brain skills into each AI tool's skills folder.
+#   ./install.sh              link them; run it again after adding or removing a skill
+#   ./install.sh --uninstall  remove the links
 set -euo pipefail
 
 kit="$(cd "$(dirname "$0")" && pwd -P)"
 
-# ~/.agents/skills is read by Codex, GitHub Copilot and Gemini CLI.
-# Claude Code reads only ~/.claude/skills, so it gets its own links when installed.
+# ~/.agents/skills is read by Copilot and other tools; Claude Code reads ~/.claude/skills.
 targets=("$HOME/.agents/skills")
-[ -d "$HOME/.claude" ] && targets+=("$HOME/.claude/skills")
-
-if [ "${1:-}" = "--uninstall" ]; then
-  for t in "${targets[@]}"; do
-    for link in "$t"/brain-*; do
-      [ -L "$link" ] || continue
-      case "$(readlink "$link")" in
-        "$kit"/skills/*) rm "$link" && echo "removed $link" ;;
-      esac
-    done
-  done
-  exit 0
-fi
+if [ -d "$HOME/.claude" ]; then targets+=("$HOME/.claude/skills"); fi
 
 for t in "${targets[@]}"; do
+  # First remove every link into this kit, so a deleted skill leaves no dead link.
+  for link in "$t"/brain-*; do
+    if [ -L "$link" ]; then
+      case "$(readlink "$link")" in "$kit"/skills/*) rm "$link" ;; esac
+    fi
+  done
+  if [ "${1:-}" = "--uninstall" ]; then echo "removed links from $t"; continue; fi
+
+  # Then link every skill the kit has now.
   mkdir -p "$t"
   for skill in "$kit"/skills/brain-*/; do
     name="$(basename "$skill")"
-    dest="$t/$name"
-    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
-      echo "skipped $dest: a real folder with that name is in the way"
+    if [ -e "$t/$name" ] && [ ! -L "$t/$name" ]; then
+      echo "skipped $t/$name: a real folder with that name is in the way"
       continue
     fi
-    ln -sfn "$kit/skills/$name" "$dest"
-    echo "linked $dest"
+    ln -sfn "$kit/skills/$name" "$t/$name"
+    echo "linked $t/$name"
   done
 done
 
-echo
-echo "Done. Open Claude Code (or Copilot) and say: set up my brain"
+if [ "${1:-}" != "--uninstall" ]; then echo "Done. Open Claude Code (or Copilot) and say: set up my brain"; fi

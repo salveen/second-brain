@@ -27,6 +27,7 @@ Import style, for tools that expand `@path` imports:
 ## Second brain
 My second brain is at ~/.brain: tasks and reminders, memory about me, notes, projects and a log.
 Use the brain-* skills for tasks, reminders, memory, capture, reviews and the daily heartbeat. Look in ~/.brain before asking me for context.
+In the first chat of the day, if today's day file in ~/.brain does not exist yet, offer to run the heartbeat ("plan my day").
 @~/.brain/memory/MEMORY.md
 <!-- brain:end -->
 ```
@@ -39,6 +40,7 @@ Read style, for every other tool:
 My second brain is at ~/.brain: tasks and reminders, memory about me, notes, projects and a log.
 At the start of every session, read ~/.brain/memory/MEMORY.md: it says who I am and how I like to work.
 Use the brain-* skills for tasks, reminders, memory, capture, reviews and the daily heartbeat. Look in ~/.brain before asking me for context.
+In the first chat of the day, if today's day file in ~/.brain does not exist yet, offer to run the heartbeat ("plan my day").
 <!-- brain:end -->
 ```
 
