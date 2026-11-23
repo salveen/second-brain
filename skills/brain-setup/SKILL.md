@@ -1,8 +1,8 @@
 ---
 name: brain-setup
-description: Set up, update, connect, move or check the user's second brain at ~/.brain. Use when the user says "set up my brain", "install brain", "update my brain", "upgrade my brain", "adopt my vault", "connect Claude Code / Copilot to my brain", "disconnect", "move my brain", "interview me", "update my profile", "import my profile", "import my ChatGPT memory", "brain doctor" or "check my brain", or when another brain skill finds that ~/.brain does not exist. Looks at what is already there first: sets up a new brain, updates an older one, or adopts an existing notes folder or another AI brain after a backup, never changing the user's own notes. Runs a quick interview (3 questions at most) and can import what ChatGPT, Claude or Gemini already know about the user.
+description: Set up, update, connect, move or check the user's second brain at ~/.brain. Use when the user says "set up my brain", "install brain", "update my brain", "upgrade my brain", "adopt my vault", "connect Claude Code / Copilot to my brain", "disconnect", "move my brain", "interview me", "update my profile", "import my profile", "import my ChatGPT memory", "brain doctor" or "check my brain", or when another brain skill finds that ~/.brain does not exist. It looks at what is already there first, then sets up a new brain, updates an older one, or adopts an existing notes folder or another AI brain after a backup, never changing the user's own notes. Runs a quick interview (3 questions at most) and can import what ChatGPT, Claude or Gemini already know about the user.
 metadata:
-  version: "3.1"
+  version: "3.2"
 ---
 
 # brain-setup
