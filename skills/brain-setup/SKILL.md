@@ -53,6 +53,15 @@ Before Update or Adopt changes anything:
 3. If the copy fails or the counts differ, stop: no backup, no changes.
 4. Tell the user where the backup is, and that they can delete it once they are happy.
 
+## Hand-written files
+
+For a brain folder that already holds files outside the vault (Adopt, or Update with other items at the top):
+
+1. List the items at the top of the brain folder, leaving out hidden ones and `brain_vault`, with how many files each folder holds.
+2. Ask: "Which of these do you write by hand? They stay where they are, and I only read them. Everything else moves into the brain's inbox, and tidy files it. Default: all of them stay." The user can name whole folders or single files inside them.
+3. Move everything else into the inbox with `mv`, keeping its path: `Projects/Plan.md` becomes `<inbox>/Projects/Plan.md`. Never copy and delete, and never rename.
+4. Say how many files stayed and how many moved. When the rest of the setup or update is done, run the brain-tidy skill as "tidy all": it shows each batch before changing anything.
+
 ## First run
 
 1. The AI's files go in `<brain>/brain_vault` (the vault). Everything else in `<brain>` is the user's own notes, which tidy files into the vault.
@@ -82,7 +91,7 @@ Before Update or Adopt changes anything:
 For a brain whose marker is lower than the kit's. List what will change (below, for each version above the brain's), ask for one yes, then:
 
 1. Run Backup.
-2. If the brain has no `brain_vault` yet, create it and move into it `AGENTS.md` and every path the Map names. Hidden files and folders (such as `.obsidian` and `.git`) stay. List any other item at the top of the brain folder: it stays there as the user's own notes unless the user names it to move. Then point the link at the vault: `ln -sfn "<brain>/brain_vault" ~/.brain`.
+2. If the brain has no `brain_vault` yet, create it and move into it `AGENTS.md` and every path the Map names. Hidden files and folders (such as `.obsidian` and `.git`) stay. Then point the link at the vault: `ln -sfn "<brain>/brain_vault" ~/.brain`. If other items are left at the top of the brain folder, follow Hand-written files.
 3. Bring the vault's `AGENTS.md` up to the kit's version: add what each newer version adds and keep everything the user wrote, then set its marker to the kit's. Copy scaffold files the vault lacks, skipping existing ones.
 4. If `<brain>/.obsidian/daily-notes.json` or `templates.json` point at folders that moved, put `brain_vault/` in front of those paths.
 5. Search the vault, and each connected tool's instructions file outside the markers, for absolute paths to files that moved. Show the lines and fix them on yes.
