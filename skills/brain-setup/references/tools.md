@@ -5,7 +5,7 @@
 | Tool | Detect | Skills folder | Instructions file | Pointer |
 |---|---|---|---|---|
 | Claude Code | `claude --version` | `~/.claude/skills/<skill>` | `~/.claude/CLAUDE.md` | import |
-| GitHub Copilot (VS Code or CLI) | `~/.copilot` exists, or `copilot --version` | `~/.agents/skills/<skill>` | `~/.copilot/copilot-instructions.md` | read |
+| GitHub Copilot (VS Code or CLI) | `~/.copilot` exists, or `copilot --version` | `~/.copilot/skills/<skill>` | `~/.copilot/copilot-instructions.md` | read |
 | Another tool that reads Agent Skills (for example Codex or Gemini CLI) | ask the user | `~/.agents/skills/<skill>` | the tool's user-level rules file | read |
 
 ## Check the skills

@@ -6,8 +6,8 @@ set -euo pipefail
 
 kit="$(cd "$(dirname "$0")" && pwd -P)"
 
-# ~/.agents/skills is read by Copilot and other tools; Claude Code reads ~/.claude/skills.
-targets=("$HOME/.agents/skills")
+# Copilot reads ~/.copilot/skills, Codex and other tools ~/.agents/skills, Claude Code ~/.claude/skills.
+targets=("$HOME/.copilot/skills" "$HOME/.agents/skills")
 if [ -d "$HOME/.claude" ]; then targets+=("$HOME/.claude/skills"); fi
 
 for t in "${targets[@]}"; do
