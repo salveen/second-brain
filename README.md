@@ -1,6 +1,6 @@
 # second-brain
 
-A second brain made of small skills and "~/Brain" folder of Markdown files: tasks, memory, notes, a daily file and a log, all on your own machine. It works in Claude Code and GitHub Copilot.
+A second brain made of small skills and a `~/Brain` folder of Markdown files: tasks, memory, notes, a daily file and a log, all on your own machine. It works in Claude Code and GitHub Copilot.
 
 ## Setup (macOS)
 

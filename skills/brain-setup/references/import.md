@@ -17,7 +17,7 @@ A profile file is Markdown about the user, for example a starter file written in
    - dated next steps: tasks in the brain-task format, offered separately.
 4. Write one memory file per subject, not per line. Keep the user's own wording and absolute dates.
 5. Show the plan (each memory's title and one line, the notes and the tasks) and ask for one yes.
-6. Write the files with `source: import:profile <file name>`, add their index lines to `memory/MEMORY.md`, copy the profile file unchanged into the notes folder as the source, add the tasks the user accepted, and append to the log: `## [<today>] setup | imported <n> memories from <file name>`.
+6. Write the files with `source: import:<file name>`, add their index lines to `memory/MEMORY.md`, copy the profile file unchanged into the notes folder as the source, add the tasks the user accepted, and append to the log: `## [<today>] setup | imported <n> memories from <file name>`.
 
 ## From another assistant
 

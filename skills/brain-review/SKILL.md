@@ -26,7 +26,7 @@ Small, fixed rituals that make work visible: one line a day, one update a week, 
 
 ## Daily line
 
-1. Collect today: lines ticked in today's day file, tasks with `✅ <today>`, and what the user said. If the user names an open task as finished, mark it done the brain-task way: keep the whole line, change `[ ]` to `[x]`, append `✅ <today>` and move it to the top of `## Done`. Do not re-date other tasks from what the user intends next; offer the move instead.
+1. Collect today: lines ticked in today's day file, tasks with `✅ <today>`, and what the user said. If the user names an open task as finished, mark it done the brain-task way: keep the whole line, change `[ ]` to `[x]`, append `✅ <today>`, move it to the top of `## Done`, and add the next occurrence if it has 🔁. Do not re-date other tasks from what the user intends next; offer the move instead.
 2. If something is missing, ask one question: "What did you finish, what do you intend to do next, and is anything blocked?" On a slow day, naming the blocker is a good answer.
 3. Write one line under `## Daily line` in today's day file. If the day file is missing, create it from the day template; if the heading is missing, add it right after the heartbeat block. Replace an earlier line for today.
    `Done: <outcomes> | Next: I intend to <1-2 small things> | Blocked: <who or what, or nothing>`
@@ -47,7 +47,7 @@ Find the newest day file before today with text under `## Daily line`. Reply wit
    - Risks or blockers: what could slip, and what is being done about it
    - Asks: decisions or help needed, and from whom
    - One bigger item: ask the user for it (an idea, a feedback question, a career point), or leave it out
-4. Show the draft. After the user's yes or edits, save it in the notes folder as `weekly-update-<today>.md`, with the prefix and source line the vault's naming rules ask for.
+4. Show the draft. After the user's yes or edits, save it in the notes folder as `weekly-update-<today>.md`, following the vault's rules for AI-made notes.
 5. Append to the log: `## [<today>] review | weekly update`. Reply with the final text, ready to paste. The user sends it, never this skill.
 
 ## Think block
@@ -58,14 +58,14 @@ Find the newest day file before today with text under `## Daily line`. Reply wit
 2. Proposal, 15 minutes: turn one answer into problem, recommendation and value (what it improves, in plain business words), plus the first step.
 3. System check, 10 minutes: count this week's workdays with a daily line, and whether this week has a weekly update note. If either is short, ask what broke and fix the ritual, not the person: make it smaller or move it to a better moment. Never redesign the whole system.
 
-Save it in the notes folder as `think-block-<today>.md` (prefix and source line as the naming rules say). Offer the first step as a task in the brain-task format. Log `review | think block`.
+Save it in the notes folder as `think-block-<today>.md`, following the vault's rules for AI-made notes. Offer the first step as a task in the brain-task format. Log `review | think block`.
 
 ## Review
 
 - **Monthly, 30 minutes:** what shipped (tasks done this month, the weekly update notes), what moved on the user's focus or tracked signals, and one thing to change.
 - **Quarterly, 90 minutes:** the monthly questions, plus where the user's work is going in 6 to 12 months, the one area they want to be known for, and the skill they will build for it. It ends in a one-page note.
 
-Save as `review-<YYYY-MM>.md` or `review-<YYYY>-Q<n>.md` in the notes folder. A change of goals becomes a memory update through brain-remember, after a yes. Log `review | monthly` or `review | quarterly`.
+Read the archive too for tasks and day files older than 30 days. Save as `review-<YYYY-MM>.md` or `review-<YYYY>-Q<n>.md` in the notes folder, following the vault's rules for AI-made notes. A change of goals becomes a memory update through brain-remember, after a yes. Log `review | monthly` or `review | quarterly`.
 
 ## Never
 

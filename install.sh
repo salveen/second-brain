@@ -32,4 +32,4 @@ for t in "${targets[@]}"; do
   done
 done
 
-if [ "${1:-}" != "--uninstall" ]; then echo "Done. Open Claude Code (or Copilot) and say: set up my brain"; fi
+if [ "${1:-}" != "--uninstall" ]; then echo "Done. In Claude Code or Copilot, say: set up my brain (or: update my brain)"; fi

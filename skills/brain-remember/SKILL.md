@@ -5,7 +5,7 @@ description: Save, update, forget or show what the user's second brain knows abo
 
 # brain-remember
 
-Memory is a folder of small files, one per fact or rule, plus an index (`MEMORY.md`) that every session loads. This skill is the only writer.
+Memory is a folder of small files, one per fact or rule, plus an index (`MEMORY.md`) that every session loads. Every brain skill that writes memory uses the format below.
 
 ## Start
 
@@ -21,12 +21,12 @@ Memory is a folder of small files, one per fact or rule, plus an index (`MEMORY.
 
 ## Types and files
 
-| type | holds | file |
-|---|---|---|
-| user | who they are | `user_<slug>.md` |
-| feedback | how to work with them | `feedback_<slug>.md` |
-| project | focus, goals, deadlines, decisions | `project_<slug>.md` |
-| reference | where things are | `reference_<slug>.md` |
+| type | holds | file | index heading |
+|---|---|---|---|
+| user | who they are | `user_<slug>.md` | About me |
+| feedback | how to work with them | `feedback_<slug>.md` | How to work with me |
+| project | focus, goals, deadlines, decisions | `project_<slug>.md` | Current focus |
+| reference | where things are | `reference_<slug>.md` | Where things are |
 
 ```
 ---
@@ -34,7 +34,7 @@ name: <Short title>
 description: <one line that states the fact itself>
 type: <user | feedback | project | reference>
 updated: YYYY-MM-DD
-source: <chat | setup | import:<tool> | a file path>
+source: <chat | setup | import:<tool or file name> | the file it came from>
 until: YYYY-MM-DD        (only for temporary facts, such as a trip)
 ---
 <The fact in plain words, with absolute dates.>
@@ -48,7 +48,7 @@ A feedback memory starts with the rule, then a `**Why:**` line and a `**How to a
 2. Found: update that file and its `updated` date. When a fact changes, keep a short trail: `Changed <date>: was <old>.`
 3. Not found: create a new file.
 4. Turn relative dates into absolute ones.
-5. Update `MEMORY.md`: one line per file under its type's heading, `- [Title](file.md) - <hook>`. Keep it under 150 lines; past 130, merge or shorten lines and say so.
+5. Update `MEMORY.md`: one line per file under its index heading, `- [Title](file.md) - <hook>`. Keep it under 150 lines; past 130, merge or shorten lines and say so.
 6. Append to the log: `## [<today>] memory | saved <file>`.
 7. Reply in one line: `Saved to memory: <fact>`.
 

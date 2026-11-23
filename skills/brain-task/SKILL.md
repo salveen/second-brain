@@ -23,7 +23,7 @@ All tasks and reminders live in one file, one line per task. The date on a line 
 ```
 
 - Sections, in this order: `## Open`, `## Waiting`, `## Someday`, `## Done`. Keep Open and Waiting sorted by date, undated lines last.
-- Text is a short, specific action: "Call PZU about the OC price", not "insurance". No em or en dashes.
+- Text is a short, specific action: "Call the insurer about the car policy price", not "insurance". No em or en dashes.
 - ⏫ only when the user says it is important or urgent.
 - Longer context goes into a note, linked from the line: `[[note name]]`.
 
@@ -70,7 +70,7 @@ Reply with one line per change.
 
 ## List
 
-For "what's on my plate", "what's due", "what am I waiting on": short bullets grouped as Overdue, Today, Next 7 days and Waiting, each with weekday and date. Follow the user's format preferences from memory.
+For "what's on my plate", "what's due", "what am I waiting on": short bullets grouped as Overdue, Today, Next 7 days and Waiting, each with weekday and date. Include dated `- [ ]` lines from the owner's own files too, marked `(in <file name>)`, as the heartbeat does. Follow the user's format preferences from memory.
 
 ## Never
 

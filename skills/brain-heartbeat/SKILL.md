@@ -24,7 +24,7 @@ From the tasks file:
 - **Due today:** lines in `## Open` with today's date.
 - **Waiting:** every line in `## Waiting`; those dated today or earlier are follow-ups due.
 - **Coming up:** lines in `## Open` dated within the next 7 days.
-- **Own files:** open `- [ ]` lines with a 📅 date in the owner's own files (the Map's own files, outside the vault, skipping hidden folders) that are overdue, due today or due within 7 days. Only read those files.
+- **Own files:** open `- [ ]` lines with a 📅 date in the owner's own files (the Map's own files, outside the vault, skipping hidden folders and files marked `sensitive: true`) that are overdue, due today or due within 7 days. Only read those files.
 
 Also count the files in the inbox, and for each task count its `task | moved "<text>"` lines in the log from the last 30 days.
 
