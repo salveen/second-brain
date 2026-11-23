@@ -1,8 +1,6 @@
 ---
 name: brain-capture
 description: Save something into the user's second brain (~/.brain) - a quick thought, a link, a PDF, an image, a transcript, a synthesis worth keeping from this chat, or a one-line log of something that just happened, such as a finished change in a code repo. Use when the user says "capture this", "save this", "file this", "note this down", "add to my brain", "keep this", "log this", "write this up as a note", or shares material to keep for later. Raw items go to the inbox; finished notes go to notes or a project, linked to related notes; log lines go to the log and the project's dev log.
-metadata:
-  version: "1.1"
 ---
 
 # brain-capture
@@ -11,7 +9,7 @@ metadata:
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
 2. Read `~/.brain/AGENTS.md` unless it is already in context: the Map (inbox, notes, projects, log), the Repos table and the naming rules.
-3. Get today's date from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
+3. Get today's date from the system clock: `date '+%F %A'`. Never guess the date.
 
 ## Pick the mode
 

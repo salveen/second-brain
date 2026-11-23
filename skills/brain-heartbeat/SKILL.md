@@ -1,8 +1,6 @@
 ---
 name: brain-heartbeat
 description: Generate today's day file in the user's second brain (~/.brain/days/YYYY-MM-DD.md) from their tasks - what is due or overdue, what they are waiting on, what is coming up, and one nudge - after syncing boxes they ticked in earlier day files back into tasks.md. Use when the user says "heartbeat", "what's today", "what's on today", "plan my day", "morning brief", "daily brief", "what should I do today". Safe to run several times a day; the user's own notes in the day file are kept.
-metadata:
-  version: "1.2"
 ---
 
 # brain-heartbeat
@@ -13,7 +11,7 @@ Builds the day file, the one place to look each day. It reads the task list, nev
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
 2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context: tasks file, own files, days folder, day template, inbox, log, areas and MITs per day (default 3).
-3. Get today's date and weekday from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
+3. Get today's date and weekday from the system clock: `date '+%F %A'`. Never guess the date.
 
 ## 1. Sync ticked boxes
 

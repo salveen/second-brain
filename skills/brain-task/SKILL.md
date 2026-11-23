@@ -1,8 +1,6 @@
 ---
 name: brain-task
 description: Add, complete, move, drop or list the user's tasks and reminders in their second brain (~/.brain/tasks.md). Use whenever the user says "remind me", "add a task", "todo", "I need to", "I have to", "don't let me forget", "done", "finished", "push X to Friday", "snooze", "postpone", "drop X", "I'm waiting on X from Y", "follow up with", or asks what is on their plate, what is due, or what they are waiting on. Turns relative dates such as "next month", "in two weeks" or "Friday" into exact dates. A reminder is a dated task that the heartbeat surfaces; this skill never creates cron jobs, timers, alarms or calendar events.
-metadata:
-  version: "1.0"
 ---
 
 # brain-task
@@ -13,7 +11,7 @@ All tasks and reminders live in one file, one line per task. The date on a line 
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
 2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context. It names the tasks file (default `tasks.md`), the areas and the log file.
-3. Get today's date and weekday from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
+3. Get today's date and weekday from the system clock: `date '+%F %A'`. Never guess the date.
 4. Read the tasks file. If the legend at its top differs from this skill, the legend wins.
 
 ## Line format

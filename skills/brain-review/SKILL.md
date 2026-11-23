@@ -1,8 +1,6 @@
 ---
 name: brain-review
 description: Keep work visible with small fixed rituals in the user's second brain (~/.brain) - the daily line (done, next, blocked) for a standup, the weekly update for a 1:1 or status email, a weekly think block, and monthly or quarterly reviews. Use when the user says "end of day", "daily line", "log off", "wrap up my day", "prep my daily", "standup", "weekly update", "prep my 1:1", "status update", "think block", "friday review", "weekly review", "monthly review" or "quarterly review". Drafts from the day files and tasks, never sends anything, and saves only what the user approved.
-metadata:
-  version: "1.0"
 ---
 
 # brain-review
@@ -13,7 +11,7 @@ Small, fixed rituals that make work visible: one line a day, one update a week, 
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
 2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context: tasks file, days folder, day template, notes folder, log and the naming rules.
-3. Get today's date and weekday from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
+3. Get today's date and weekday from the system clock: `date '+%F %A'`. Never guess the date.
 4. Read the memory index for tone and format preferences, and for anything the user tracks (goals, or signals agreed with someone).
 
 ## Pick the mode

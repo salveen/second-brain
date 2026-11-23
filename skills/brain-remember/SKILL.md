@@ -1,8 +1,6 @@
 ---
 name: brain-remember
 description: Save, update, forget or show what the user's second brain knows about them (~/.brain/memory/). Use when the user says "remember", "remember that", "note that I", "keep in mind", "from now on", "always", "never", "I prefer", "forget", "that's wrong, it's", "what do you know about me", "update my profile", or states a lasting fact, preference, correction or decision that should carry across sessions and tools. Keeps one fact per file plus a short MEMORY.md index that every session loads. Refuses to store secrets.
-metadata:
-  version: "1.1"
 ---
 
 # brain-remember
@@ -13,7 +11,7 @@ Memory is a folder of small files, one per fact or rule, plus an index (`MEMORY.
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
 2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context. It names the memory folder (default `memory/`) and the log.
-3. Get today's date from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
+3. Get today's date from the system clock: `date '+%F %A'`. Never guess the date.
 
 ## What to keep
 

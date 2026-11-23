@@ -16,22 +16,7 @@ Check that every `brain-*` entry in the tool's skills folder has a `SKILL.md` in
 
 ## Write the pointer
 
-Put the block between the markers. Replace an existing block, create the file if it is missing, and never touch text outside the markers.
-
-Import style, for tools that expand `@path` imports:
-
-```
-<!-- brain:start -->
-## Second brain
-My second brain is at ~/.brain: tasks and reminders, memory about me, notes, projects and a log.
-My own notes are the other files in the folder around it: read them when useful, change them only when I ask.
-Use the brain-* skills for tasks, reminders, memory, capture, reviews and the daily heartbeat. Look in ~/.brain before asking me for context.
-In the first chat of the day, if today's day file in ~/.brain does not exist yet, offer to run the heartbeat ("plan my day").
-@~/.brain/memory/MEMORY.md
-<!-- brain:end -->
-```
-
-Read style, for every other tool:
+Put this block in the tool's instructions file. Replace an existing block between the markers, create the file if it is missing, and never touch text outside the markers.
 
 ```
 <!-- brain:start -->
@@ -43,6 +28,8 @@ Use the brain-* skills for tasks, reminders, memory, capture, reviews and the da
 In the first chat of the day, if today's day file in ~/.brain does not exist yet, offer to run the heartbeat ("plan my day").
 <!-- brain:end -->
 ```
+
+For a tool whose Pointer column says import, replace the "At the start of every session" line with `@~/.brain/memory/MEMORY.md`, so the memory index loads by itself.
 
 ## Disconnect
 
