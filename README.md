@@ -8,8 +8,8 @@ A second brain made of small skills and "~/Brain" folder of Markdown files: task
    ```bash
    git clone https://github.com/salveen/second-brain.git ~/.second-brain && ~/.second-brain/install.sh
    ```
-   This puts the skills in a hidden folder, `~/.second-brain`. Keep it: deleting it turns the skills off. Your notes live in a separate folder (`~/Brain` by default). To update later, run `cd ~/.second-brain && git pull && ./install.sh`.
-2. Open Claude Code, or Copilot in agent mode, and say **"set up my brain"**. It asks a few questions and does the rest.
+   This puts the skills in a hidden folder, `~/.second-brain`. Keep it: deleting it turns the skills off. Your notes live in a separate folder (`~/Brain` by default). To update later, run `cd ~/.second-brain && git pull && ./install.sh`, then say **"update my brain"**.
+2. Open Claude Code, or Copilot in agent mode, and say **"set up my brain"**. It asks a few questions and does the rest. Already have notes, or another AI brain? Name that folder: it makes a backup first and keeps your notes as they are.
 3. Write your own notes anywhere in `~/Brain`. The AI keeps its files in `~/Brain/brain_vault` and never changes yours; say **"tidy"** and it files what is new in your notes into its vault.
 
 ## What you can say

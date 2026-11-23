@@ -1,8 +1,8 @@
 ---
 name: brain-tidy
-description: Maintenance pass for the user's second brain (~/.brain), like sleep for memory - file what is new in the user's own notes (the files around the vault) and in the inbox into notes, projects, tasks or memory; merge duplicate memories and fix stale or relative dates; archive finished tasks, old day files and old log entries; report broken links and orphan notes. Use when the user says "tidy", "tidy up", "dream", "clean up my brain", "file my notes", "process my inbox", "triage the inbox", "consolidate memory", "weekly cleanup", or when the heartbeat suggests it. Shows every change first and applies them after one confirmation.
+description: Maintenance pass for the user's second brain (~/.brain), like sleep for memory - file what is new in the user's own notes (the files around the vault) and in the inbox into notes, projects, tasks or memory; merge duplicate memories and fix stale or relative dates; archive finished tasks, old day files and old log entries; report broken links and orphan notes. Use when the user says "tidy", "tidy all", "tidy up", "dream", "clean up my brain", "file my notes", "process my inbox", "triage the inbox", "consolidate memory", "weekly cleanup", or when the heartbeat suggests it. Shows every change first and applies them after one confirmation.
 metadata:
-  version: "1.2"
+  version: "1.3"
 ---
 
 # brain-tidy
@@ -53,3 +53,5 @@ Never change, move or delete the owner's own files or anything marked `sensitive
 ## 4. Report
 
 Append to the log: `## [<today>] tidy | own=<n> inbox=<n> memory=<n> archived=<n>`. Reply with the counts and anything that still needs the user.
+
+**Tidy all** ("tidy all", or the first full tidy after setup): when own files are left after a batch, ask "Next 20? (<n> left)" and on yes repeat steps 1 to 4 for own files only, until none are left or the user stops.
