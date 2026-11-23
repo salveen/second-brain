@@ -2,7 +2,7 @@
 name: brain-setup
 description: Set up, connect, move or check the user's second brain at ~/.brain. Use when the user says "set up my brain", "install brain", "connect Claude Code / Copilot to my brain", "disconnect", "move my brain", "interview me", "update my profile", "import my profile", "import my ChatGPT memory", "adopt my vault", "brain doctor" or "check my brain", or when another brain skill finds that ~/.brain does not exist. Runs a quick interview (3 questions at most), can import a profile file or what ChatGPT, Claude or Gemini already know about the user, and can adopt an existing notes folder.
 metadata:
-  version: "2.0"
+  version: "3.0"
 ---
 
 # brain-setup
@@ -22,7 +22,7 @@ The second brain is a folder of plain files (the vault) reached through the link
 |---|---|
 | a first setup, or `~/.brain` is missing | First run |
 | "connect X", "I installed X", "disconnect X" | Connect |
-| to bring in an existing notes folder or vault | Adopt: follow `references/adopt.md` |
+| to bring in an existing notes folder or vault | First run, with that folder as the brain folder |
 | "import my profile", "import my ChatGPT / Claude / Gemini memory" | Import: follow `references/import.md` |
 | "move my brain" | Move |
 | "interview me", "update my profile" | Interview |
@@ -30,26 +30,27 @@ The second brain is a folder of plain files (the vault) reached through the link
 
 ## First run
 
-1. Ask where the vault should live. Default: `~/Brain`. If that folder (or the one the user names) already holds notes, for example an Obsidian vault, switch to Adopt.
-2. Create the folder, then the link: `ln -s "<vault>" ~/.brain`. If `~/.brain` already exists and points somewhere else, stop and ask.
-3. Copy everything in `assets/vault/` into the vault, keeping subfolders. Skip files that already exist and list them. Create the empty folders `days`, `inbox`, `notes`, `projects` and `archive`.
+1. Ask where the brain folder should live. Default: `~/Brain`. The AI's files go in `<brain>/brain_vault` (the vault); everything else in `<brain>` is the user's own notes, which tidy files into the vault. If the folder already holds notes, for example an Obsidian vault, they stay where they are and become the user's own notes.
+2. Create `<brain>/brain_vault`, then the link: `ln -s "<brain>/brain_vault" ~/.brain`. If `~/.brain` already exists and points somewhere else, stop and ask.
+3. Copy everything in `assets/vault/` into the vault, keeping subfolders. Skip files that already exist and list them. Put its `.gitignore` in the brain folder instead, unless one is already there. Create the empty folders `days`, `inbox`, `notes`, `projects` and `archive`.
 4. Ask: "Do you have a profile file to start from (for example a starter file from another brain), or should I import what ChatGPT, Claude or Gemini know about you? Default: neither." If yes, follow `references/import.md`.
 5. Run the Interview.
 6. Detect the installed tools (`references/tools.md`), say which you found, and connect them all on one yes.
-7. If git is installed and the vault is not a repository yet, run `git init` in it. Local only.
+7. If git is installed and the brain folder is not a repository yet, run `git init` in it. Local only.
 8. Run the brain-heartbeat skill once, so the user sees today's file.
 9. Show this card:
    ```
-   Your brain is at ~/.brain. In any connected tool you can say:
+   Your brain is <brain>. Write your own notes anywhere in it; my files are in
+   <brain>/brain_vault (~/.brain). In any connected tool you can say:
    - "remind me next month to ..."      adds a dated task
    - "heartbeat"                         writes today's file in days/
    - "done: ...", "push ... to Friday"   updates tasks
    - "end of day", "weekly update"       the daily line and the weekly update
    - "remember that I ...", "what do you know about me"
    - "capture this ...", "file this", "log this"
-   - "tidy"                              inbox, memory and archive cleanup
+   - "tidy"                              files what is new in your notes, cleans up
    ```
-10. Append to the log: `## [<today>] setup | brain set up at <vault>`.
+10. Append to the log: `## [<today>] setup | brain set up at <brain>`.
 
 ## Interview
 
@@ -63,20 +64,20 @@ Memory files use the brain-remember format (`name`, `description`, `type`, `upda
 
 ## Connect
 
-Follow `references/tools.md`: link every `brain-*` skill folder into the tool's skills folder, then write the pointer block into the tool's instructions file. Disconnect removes those two things and nothing else. Report one line per tool.
+Follow `references/tools.md`: check that the tool's skill links work, then write the pointer block into the tool's instructions file. Never create, change or delete skill links: `install.sh` does that. Disconnect removes the pointer block and nothing else. Report one line per tool.
 
 ## Move
 
-Move the vault folder (or copy it if the user wants a fallback), re-point the link with `ln -sfn "<new>" ~/.brain`, then run Doctor.
+Move the whole brain folder (or copy it if the user wants a fallback), re-point the link with `ln -sfn "<new>/brain_vault" ~/.brain`, then run Doctor.
 
 ## Doctor
 
 Check each item and print one line per item: ok, or the problem and its fix. Offer the fixes and apply them only on yes.
 
-- `~/.brain` resolves to a folder that contains `AGENTS.md`.
+- `~/.brain` resolves to a folder named `brain_vault` that contains `AGENTS.md`.
 - Every path in the Map exists.
 - `tasks.md` has `## Open`, `## Waiting`, `## Someday` and `## Done`, and every task line is `- [ ]` or `- [x]` with dates written as `YYYY-MM-DD`.
 - `memory/MEMORY.md` is under 150 lines, every link in it points to an existing file, and no memory file is missing from it.
-- For each connected tool (see `references/tools.md`): the skill links resolve and the pointer block is present.
-- The `<!-- brain-vault: N -->` marker in the vault's `AGENTS.md` matches the one in `assets/vault/AGENTS.md`. If the vault is older or has no marker, list what the newer scaffold adds and offer to add it. Version 2 adds the `-C-` naming rule for AI-made notes and a `## Daily line` section in the day template.
+- For each connected tool (see `references/tools.md`): every skill link has a `SKILL.md` behind it, and the pointer block is present. The fix for broken links is running `install.sh` in the kit folder, never linking by hand.
+- The `<!-- brain-vault: N -->` marker in the vault's `AGENTS.md` matches the one in `assets/vault/AGENTS.md`. If the vault is older or has no marker, list what the newer scaffold adds and offer to add it. Version 2 adds the `-C-` naming rule for AI-made notes and a `## Daily line` section in the day template. Version 3 puts the vault in `brain_vault` inside the brain folder, with the user's own notes around it. To upgrade to 3: back up the brain folder, create `brain_vault`, move everything except hidden files and folders (such as `.obsidian` and `.git`) into it, re-point `~/.brain`, add the Own files and Tidy copies rows and the own-files rule to `AGENTS.md`, and point Obsidian's daily notes and templates settings at `brain_vault/`.
 - Nothing from the brain runs on a schedule (macOS: `launchctl list | grep -i brain` is empty).

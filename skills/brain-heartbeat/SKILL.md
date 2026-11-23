@@ -2,7 +2,7 @@
 name: brain-heartbeat
 description: Generate today's day file in the user's second brain (~/.brain/days/YYYY-MM-DD.md) from their tasks - what is due or overdue, what they are waiting on, what is coming up, and one nudge - after syncing boxes they ticked in earlier day files back into tasks.md. Use when the user says "heartbeat", "what's today", "what's on today", "plan my day", "morning brief", "daily brief", "what should I do today". Safe to run several times a day; the user's own notes in the day file are kept.
 metadata:
-  version: "1.1"
+  version: "1.2"
 ---
 
 # brain-heartbeat
@@ -12,7 +12,7 @@ Builds the day file, the one place to look each day. It reads the task list, nev
 ## Start
 
 1. The brain is at `~/.brain`. If that does not exist, stop and suggest the brain-setup skill.
-2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context: tasks file, days folder, day template, inbox, log, areas and MITs per day (default 3).
+2. Read the Map in `~/.brain/AGENTS.md` unless it is already in context: tasks file, own files, days folder, day template, inbox, log, areas and MITs per day (default 3).
 3. Get today's date and weekday from the system clock: `date '+%F %A'`. If the prompt explicitly says "today is <date>", use that date even when the clock differs. Never guess the date.
 
 ## 1. Sync ticked boxes
@@ -26,6 +26,7 @@ From the tasks file:
 - **Due today:** lines in `## Open` with today's date.
 - **Waiting:** every line in `## Waiting`; those dated today or earlier are follow-ups due.
 - **Coming up:** lines in `## Open` dated within the next 7 days.
+- **Own files:** open `- [ ]` lines with a 📅 date in the owner's own files (the Map's own files, outside the vault, skipping hidden folders) that are overdue, due today or due within 7 days. Only read those files.
 
 Also count the files in the inbox, and for each task count its `task | moved "<text>"` lines in the log from the last 30 days.
 
@@ -56,7 +57,7 @@ Replace only the text between the two markers. Keep the template's headings and 
 3. third heading: Coming up, by date
 4. fourth heading: the nudge
 
-Copy task lines exactly as they are in the tasks file; the sync in step 1 depends on it. An empty section gets `_(nothing)_`. Never change anything outside the markers. If an existing day file has no markers, insert the block right under its title.
+Copy task lines exactly as they are in the tasks file; the sync in step 1 depends on it. Lines from own files go in as plain bullets, not checkboxes, ending with `(in <file name>)`: the owner ticks them in their own file. An empty section gets `_(nothing)_`. Never change anything outside the markers. If an existing day file has no markers, insert the block right under its title.
 
 ## 6. Log and reply
 
